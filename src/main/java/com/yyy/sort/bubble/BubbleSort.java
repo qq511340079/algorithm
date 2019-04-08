@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author : ytw
  * @date : 2019-01-11
- * description :
+ * description :冒泡排序，时间复杂度O(n²)
  **/
 public class BubbleSort {
 

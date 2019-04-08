@@ -80,13 +80,17 @@ public class BinaryTree {
     @Test
     public void testNoneRecursionPreorder() {
         Node node = root;
+        //保存节点，为了遍历完左孩子后能找到节点的右孩子
         Stack<Node> stack = new Stack<Node>();
+        //node ==null && stack也空了，说明遍历完了
         while (node != null || !stack.isEmpty()) {
+            //循环遍历左孩子，直到没有左孩子
             while (node != null) {
                 System.out.println(node);
                 stack.push(node);
                 node = node.left;
             }
+            //走到这里说明没有左孩子了，取出父节点，开始遍历右孩子(可能为null)
             if (!stack.isEmpty()) {
                 node = stack.pop();
                 node = node.right;
