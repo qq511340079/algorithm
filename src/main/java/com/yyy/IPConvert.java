@@ -9,11 +9,10 @@ import java.util.stream.StreamSupport;
 public class IPConvert {
 
     public static void main(String[] args) {
-        /*Integer ipInt = ip2Int("192.168.0.1");
+        Integer ipInt = ip2Int("255.255.255.255");
         System.out.println(ipInt);
         String ipString = ip2String(ipInt);
-        System.out.println(ipString);*/
-        System.out.println(1+2*3);
+        System.out.println(ipString);
     }
 
     /**
