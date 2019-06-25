@@ -25,30 +25,26 @@ public class Search2DMatrix2 {
 
     public static void main(String[] args) {
         int[][] matrix = {{1, 6, 10, 13, 14, 16, 21}, {3, 10, 12, 18, 22, 27, 29}, {3, 15, 19, 20, 23, 29, 34}, {8, 15, 19, 25, 27, 29, 39}, {12, 17, 24, 25, 28, 29, 41}, {16, 22, 27, 31, 31, 33, 44}, {20, 26, 28, 35, 39, 41, 45}, {25, 31, 34, 39, 44, 45, 47}};
-        boolean result = searchMatrix(matrix, 3);
+        boolean result = searchMatrix(matrix, 1);
         System.out.println(result);
     }
 
-    public static boolean searchMatrix(int[][] matrix, int target) {
-        if (matrix.length == 0 || matrix[0].length == 0) {
+    public static boolean searchMatrix(int[][] matrix, int target){
+        if (matrix.length == 0){
             return false;
         }
-        int i = 0, j = 0;
-        while (i < matrix.length && j < matrix[0].length) {
-            if (matrix[i][0] > target) {
-                break;
-            }
-            if (matrix[i][j] < target) {
-                j++;
-            } else if (matrix[i][j] == target) {
-                return true;
-            } else {
-                j = 0;
+        if (matrix[0][0] > target || matrix[matrix.length - 1][matrix[0].length - 1] < target) {
+            return false;
+        }
+        for (int i = 0, j = matrix[0].length - 1; i < matrix.length && j >= 0; ) {
+            int num = matrix[i][j];
+            if (num == target) return true;
+            if (num < target) {
                 i++;
+            } else {
+                j--;
             }
         }
         return false;
     }
-
-
 }
